@@ -86,3 +86,4 @@ INSERT INTO `users` VALUES
   (2,'User','user','user@user.com','$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO'),
   (3,'User','user','@user.com','$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO'),
   (4,'User','user','invalid.user@user.com','$2a$10$HDkFwOMKOI6PTza0F7.YRu1Bqsqb9hx7XkuV7QeYB5dRL4z9DI1Mu');
+  
