@@ -1,7 +1,7 @@
 import { STRING, INTEGER, Model } from 'sequelize';
 import sequelize from '.';
 
-export default class TeamsModel extends Model {
+class TeamsModel extends Model {
   declare id: number;
   declare teamName: string;
 }
@@ -23,3 +23,5 @@ TeamsModel.init({
   modelName: 'teams',
   timestamps: false,
 });
+
+export default TeamsModel;
