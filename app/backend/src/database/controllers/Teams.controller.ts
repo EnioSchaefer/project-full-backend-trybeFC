@@ -1,22 +1,31 @@
 import { Request, Response } from 'express';
-import TeamsService from '../services';
+import { TeamsService } from '../services';
+import statusCodes from '../utils/statusCodes';
 
 class TeamsController {
   constructor(private service = new TeamsService()) {}
 
   public getAllTeams = async (_req: Request, res: Response) => {
-    const teams = await this.service.getAllTeams();
+    try {
+      const teams = await this.service.getAllTeams();
 
-    return res.status(200).json(teams);
+      return res.status(statusCodes.ok).json(teams);
+    } catch (err) {
+      return res.status(statusCodes.internalError).end();
+    }
   };
 
   public getTeamById = async (req: Request, res: Response) => {
-    const { id } = req.params;
-    const numId = Number(id);
+    try {
+      const { id } = req.params;
+      const numId = Number(id);
 
-    const team = await this.service.getTeamById(numId);
+      const team = await this.service.getTeamById(numId);
 
-    return res.status(200).json(team);
+      return res.status(statusCodes.ok).json(team);
+    } catch (err) {
+      return res.status(statusCodes.internalError).end();
+    }
   };
 }
 
