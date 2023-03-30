@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import validateToken from '../database/middlewares/validateToken';
-import validateUserLogin from '../database/middlewares/validateUserLogin';
-import { UsersController } from '../database/controllers';
+import validateToken from '../middlewares/validateToken';
+import validateUserLogin from '../middlewares/validateUserLogin';
+import { UsersController } from '../controllers';
 
 const UsersRoutes = Router();
 

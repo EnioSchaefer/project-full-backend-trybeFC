@@ -1,5 +1,5 @@
-import ITeam from '../../interfaces/team.interface';
-import TeamsModel from '../models/Teams.model';
+import ITeam from '../interfaces/team.interface';
+import TeamsModel from '../database/models/Teams.model';
 
 class TeamsService {
   protected model = TeamsModel;

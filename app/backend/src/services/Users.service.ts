@@ -1,7 +1,7 @@
 import * as bcjs from 'bcryptjs';
-import errorObject from '../../interfaces/errorObject.interface';
-import IUser from '../../interfaces/users.interface';
-import UsersModel from '../models/Users.model';
+import errorObject from '../interfaces/errorObject.interface';
+import IUser from '../interfaces/users.interface';
+import UsersModel from '../database/models/Users.model';
 
 export default class UsersService {
   protected model = UsersModel;
