@@ -39,4 +39,9 @@ export default class MatchesService {
 
     return ({ message: 'Finished' });
   }
+
+  public async updateMatch(matchId: number, homeTeamGoals: number, awayTeamGoals: number)
+    : Promise<void> {
+    await this.model.update({ homeTeamGoals, awayTeamGoals }, { where: { id: matchId } });
+  }
 }

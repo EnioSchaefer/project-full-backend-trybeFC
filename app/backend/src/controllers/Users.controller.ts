@@ -10,7 +10,7 @@ const secret = String(process.env.JWT_SECRET);
 class UsersController {
   constructor(private service = new UsersService()) { }
 
-  public userLogin = async (req: Request, res: Response) => {
+  public userLogin = async (req: Request, res: Response): Promise<Response> => {
     try {
       const { email, password } = req.body;
 
@@ -28,7 +28,7 @@ class UsersController {
     }
   };
 
-  public getUserRole = async (req: Request, res: Response) => {
+  public getUserRole = async (req: Request, res: Response): Promise<Response> => {
     try {
       const { userData } = req.body;
 
