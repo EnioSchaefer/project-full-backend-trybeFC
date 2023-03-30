@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import * as jwt from 'jsonwebtoken';
-import statusCodes from '../utils/statusCodes';
+import statusCodes from '../../utils/statusCodes';
 
 require('dotenv/config');
 
 const secret = String(process.env.JWT_SECRET);
 
-export default function validateToken(req: Request, res: Response, next: NextFunction) {
+export default function authorizeToken(req: Request, res: Response, next: NextFunction) {
   const { authorization } = req.headers;
 
   if (!authorization) {

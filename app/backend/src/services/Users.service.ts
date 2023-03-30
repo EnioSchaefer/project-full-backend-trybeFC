@@ -1,5 +1,5 @@
 import * as bcjs from 'bcryptjs';
-import errorObject from '../interfaces/errorObject.interface';
+import messageObject from '../interfaces/messageObject.interface';
 import IUser from '../interfaces/users.interface';
 import UsersModel from '../database/models/Users.model';
 
@@ -9,7 +9,7 @@ export default class UsersService {
   public async userLogin(
     receivedEmail: string,
     receivedPassword: string,
-  ): Promise<IUser | errorObject> {
+  ): Promise<IUser | messageObject> {
     const userDB = await this.model.findOne({ where: { email: receivedEmail } });
 
     if (!userDB) return ({ message: 'Invalid email or password' });

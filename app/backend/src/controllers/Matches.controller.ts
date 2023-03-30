@@ -21,4 +21,17 @@ export default class MatchesController {
       return res.status(statusCodes.internalError).json(err);
     }
   };
+
+  public finishMatch = async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const numId = Number(id);
+
+      const result = await this.service.finishMatch(numId);
+
+      return res.status(statusCodes.ok).json(result);
+    } catch (err) {
+      return res.status(statusCodes.internalError).json(err);
+    }
+  };
 }

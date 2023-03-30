@@ -1,3 +1,4 @@
+import messageObject from '../interfaces/messageObject.interface';
 import IMatch from '../interfaces/matches.interface';
 import MatchesModel from '../database/models/Matches.model';
 import TeamsModel from '../database/models/Teams.model';
@@ -31,5 +32,11 @@ export default class MatchesService {
     });
 
     return matches;
+  }
+
+  public async finishMatch(matchId: number): Promise<messageObject> {
+    await this.model.update({ inProgress: false }, { where: { id: matchId } });
+
+    return ({ message: 'Finished' });
   }
 }
