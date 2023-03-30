@@ -13,9 +13,13 @@ export default function validateToken(req: Request, res: Response, next: NextFun
     return res.status(statusCodes.unauthorized).json({ message: 'Token not found' });
   }
 
-  const checkToken = jwt.verify(authorization, secret);
+  try {
+    const userData = jwt.verify(authorization, secret);
 
-  if (!checkToken) return res.status(statusCodes.unauthorized).json({ message: 'Invalid token' });
+    req.body.userData = userData;
+  } catch (err) {
+    return res.status(401).json({ message: 'Token must be a valid token' });
+  }
 
   return next();
 }

@@ -20,11 +20,21 @@ class UsersController {
         return res.status(statusCodes.unauthorized).json(login);
       }
 
-      const token = jwt.sign({ payload: login }, secret, { algorithm: 'HS256', expiresIn: '7d' });
+      const token = jwt.sign(login, secret, { algorithm: 'HS256', expiresIn: '7d' });
 
       return res.status(statusCodes.ok).json({ token });
     } catch (err) {
-      return res.status(statusCodes.internalError).end();
+      return res.status(statusCodes.internalError).json(err);
+    }
+  };
+
+  public getUserRole = async (req: Request, res: Response) => {
+    try {
+      const { userData } = req.body;
+
+      return res.status(statusCodes.ok).json({ role: userData.dataValues.role });
+    } catch (err) {
+      return res.status(statusCodes.internalError).json(err);
     }
   };
 }

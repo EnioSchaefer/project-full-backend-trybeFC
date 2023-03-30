@@ -18,8 +18,8 @@ export default class UsersService {
 
     if (!matchPassword) return ({ message: 'Invalid email or password' });
 
-    const { password, id, ...cleanUser } = userDB;
+    const { password, ...userWithoutPassword } = userDB;
 
-    return cleanUser;
+    return userWithoutPassword;
   }
 }
