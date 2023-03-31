@@ -1,3 +1,4 @@
+import sortLeaderboard from '../utils/sortLeaderboard';
 import TeamsModel from '../database/models/Teams.model';
 import MatchesModel from '../database/models/Matches.model';
 import buildLeaderboard from '../utils/buildLeaderboard';
@@ -17,6 +18,8 @@ export default class LeaderboardService {
 
     const leaderBoard = buildLeaderboard(matches, teamsIds);
 
-    return leaderBoard;
+    const sortedLeaderboard = sortLeaderboard(leaderBoard);
+
+    return sortedLeaderboard;
   }
 }
