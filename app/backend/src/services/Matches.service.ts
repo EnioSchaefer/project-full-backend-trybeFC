@@ -44,4 +44,10 @@ export default class MatchesService {
     : Promise<void> {
     await this.model.update({ homeTeamGoals, awayTeamGoals }, { where: { id: matchId } });
   }
+
+  public async insertMatch(matchBody: IMatch) {
+    const insertion = await this.model.create({ ...matchBody, inProgress: true });
+
+    return insertion;
+  }
 }

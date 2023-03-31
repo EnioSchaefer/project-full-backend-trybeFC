@@ -48,4 +48,16 @@ export default class MatchesController {
       return res.status(statusCodes.internalError).json(err);
     }
   };
+
+  public insertMatch = async (req:Request, res: Response): Promise<Response> => {
+    try {
+      const matchBody = req.body;
+
+      const insertion = await this.service.insertMatch(matchBody);
+
+      return res.status(statusCodes.created).json(insertion);
+    } catch (err) {
+      return res.status(statusCodes.internalError).json(err);
+    }
+  };
 }
