@@ -37,7 +37,7 @@ function getAwayMatchesData(id: number, matches: IMatch[]) {
   };
 }
 
-function buildLeaderboard(matches: IMatch[], teamsIds: number[]): Leaderboard[] {
+export default function mountLeaderboard(matches: IMatch[], teamsIds: number[]): Leaderboard[] {
   const leaderBoard = teamsIds.map((id) => {
     const { totalPoints, playedMatches, matchesWon, matchesDraw, goalsFavor, goalsOwn, goalsBalance,
     } = matches[0].homeTeam ? getHomeMathesData(id, matches) : getAwayMatchesData(id, matches);
@@ -60,5 +60,3 @@ function buildLeaderboard(matches: IMatch[], teamsIds: number[]): Leaderboard[] 
 
   return leaderBoard;
 }
-
-export default buildLeaderboard;
