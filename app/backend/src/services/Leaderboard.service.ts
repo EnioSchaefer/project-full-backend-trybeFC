@@ -1,7 +1,7 @@
 import sortLeaderboard from '../utils/sortLeaderboard';
 import TeamsModel from '../database/models/Teams.model';
 import MatchesModel from '../database/models/Matches.model';
-import buildLeaderboard from '../utils/buildLeaderboard';
+import mountLeaderboard from '../utils/mountLeaderboard';
 
 export default class LeaderboardService {
   protected matchesModel = MatchesModel;
@@ -16,7 +16,7 @@ export default class LeaderboardService {
     const teamsIds = [...new Map(matches.map((item) =>
       [item.homeTeamId, item.homeTeamId])).values()];
 
-    const leaderBoard = buildLeaderboard(matches, teamsIds);
+    const leaderBoard = mountLeaderboard(matches, teamsIds);
 
     const sortedLeaderboard = sortLeaderboard(leaderBoard);
 
@@ -33,7 +33,7 @@ export default class LeaderboardService {
     const teamsIds = [...new Map(matches.map((item) =>
       [item.awayTeamId, item.awayTeamId])).values()];
 
-    const leaderBoard = buildLeaderboard(matches, teamsIds);
+    const leaderBoard = mountLeaderboard(matches, teamsIds);
 
     const sortedLeaderboard = sortLeaderboard(leaderBoard);
 
