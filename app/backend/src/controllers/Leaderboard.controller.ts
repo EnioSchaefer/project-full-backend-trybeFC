@@ -14,4 +14,14 @@ export default class LeaderboardController {
       return res.status(statusCodes.internalError).json(err);
     }
   };
+
+  public getAwayTeamsLeaderboard = async (req: Request, res: Response) => {
+    try {
+      const matches = await this.service.getAwayTeamsLeaderboard();
+
+      return res.status(statusCodes.ok).json(matches);
+    } catch (err) {
+      return res.status(statusCodes.internalError).json(err);
+    }
+  };
 }

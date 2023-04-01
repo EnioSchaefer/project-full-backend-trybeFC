@@ -22,4 +22,21 @@ export default class LeaderboardService {
 
     return sortedLeaderboard;
   }
+
+  public async getAwayTeamsLeaderboard() {
+    const matches = await this.matchesModel.findAll({
+      where: { inProgress: false },
+      include: [{ model: TeamsModel, as: 'awayTeam', attributes: { exclude: ['id'] } }],
+      attributes: { exclude: ['id', 'HomeTeamId'] },
+    });
+
+    const teamsIds = [...new Map(matches.map((item) =>
+      [item.awayTeamId, item.awayTeamId])).values()];
+
+    const leaderBoard = buildLeaderboard(matches, teamsIds);
+
+    const sortedLeaderboard = sortLeaderboard(leaderBoard);
+
+    return sortedLeaderboard;
+  }
 }
