@@ -24,4 +24,14 @@ export default class LeaderboardController {
       return res.status(statusCodes.internalError).json(err);
     }
   };
+
+  public getTeamsLeaderboard = async (req: Request, res: Response) => {
+    try {
+      const matches = await this.service.getTeamsLeaderboard();
+
+      return res.status(statusCodes.ok).json(matches);
+    } catch (err) {
+      return res.status(statusCodes.internalError).json(err);
+    }
+  };
 }

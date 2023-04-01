@@ -7,5 +7,6 @@ const controller = new LeaderboardController();
 
 LeaderboardRoutes.get('/home', controller.getHomeTeamsLeaderboard);
 LeaderboardRoutes.get('/away', controller.getAwayTeamsLeaderboard);
+LeaderboardRoutes.get('/', controller.getTeamsLeaderboard);
 
 export default LeaderboardRoutes;
