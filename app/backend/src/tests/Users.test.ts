@@ -2,9 +2,10 @@ import * as sinon from 'sinon';
 import * as chai from 'chai';
 // @ts-ignore
 import chaiHttp = require('chai-http');
+import validToken from './mocks/validToken.mock';
 import {
   invalidEmailLoginBody, invalidMissingLoginBody, invalidPasswordFormatLoginBody,
-  invalidPasswordLoginBody, userDB, validLoginBody, validToken
+  invalidPasswordLoginBody, userDB, validLoginBody
 } from './mocks/Users.mock';
 
 import { app } from '../app';
