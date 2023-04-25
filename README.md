@@ -20,6 +20,7 @@ O Front-End da aplicação foi desenvolvido pelo time da **Trybe**.
 - Chai & Sinon
 - JWS (Json Web Token)
 - Bcryptjs
+- Arquitetura de Software (MSC)
 
 <h2 align="center"> 👨‍💻 Instalação </h2>
 
